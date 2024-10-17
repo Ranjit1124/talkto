@@ -1,0 +1,27 @@
+.main{
+    position: absolute;
+    z-index: -1;
+    margin-left: 250px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.name{
+    width:70%;
+    margin-top:100px;
+    z-index: -1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+@media screen and (max-width: 1260px) {
+    .name {
+      margin-left:0px;  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    }
+    .main{
+      margin-left: 0px;  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+  
+    }
+  
+  }
+  

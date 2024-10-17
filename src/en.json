@@ -1,0 +1,38 @@
+{
+    "Message": "Message",
+    "PLANNER":"PLANNER",
+    "Dashboard":"Dashboard",
+    "Attendence": "Attendence",
+    "Holiday":"Holiday",
+    "Employee":"Employee",
+    "Reports":"Reports",
+    "Leave":"Leave",
+    "Birthday":"Birthday",
+    "Group-Chat":"Group-Chat",
+    "New-Employee":"New-Employee",
+    "ApplyLeave":"Apply Leave",
+    "Apply":"Apply",
+    "Employee Details":"Employee Details",
+    "Today's Attendance":"Today's Attendance",
+    "Check-In":"Check-In",
+    "Check-Out":"Check-Out",
+    "View All":"View All",
+    "Employee List":"Employee List",
+    "Attendance List":"Attendance List",
+    "Today":"Today",
+    "Login Hours":"Login Hours",
+    "Send":"Send",
+    "Refresh":"Refresh",
+    "Clear":"Clear",
+    "type something....":"type something....",
+    "search":"search",
+    "cancel":"cancel",
+    "Attendence Details":"Attendence Details",
+    "Working Hours":"Working Hours",
+    "Recent":"Recent",
+    "Your":"Your",
+    "Leave has Been":"Leave has Been"
+
+
+
+}

@@ -1,0 +1,45 @@
+{
+    "Message": "le message",
+    "PLANNER":"PLANIFICATEUR",
+    "Dashboard":"tableau de bord",
+    "Attendence": "Présence",
+    "Holiday":"Vacances",
+    "Employee":"Employée",
+    "Reports":"Rapports",
+    "Leave":"Partir",
+    "Birthday":"Anniversaire",
+    "Group-Chat":"Chat de groupe",
+    "New-Employee":"Nouvel employé",
+    "ApplyLeave":"PostulerCongér",
+    "Apply":"Appliquer",
+    "Employee Details":"Détails de l'employé",
+    "Today's Attendance":"Participation d'aujourd'hui",
+    "Check-In":"Enregistrement",
+    "Check-Out":"Vérifier",
+    "View All":"Tout afficher",
+    "Employee List":"Liste des employés",
+    "Attendance List":"Liste de présence",
+    "Today":"Aujourd'hui",
+    "Login Hours":"Heures de connexion",
+    "Send":"Envoyer",
+    "Refresh":"Recevoir",
+    "Clear":"Clair",
+    "type something....":"tape quelque chose....",
+    "search":"recherche",
+    "cancel":"Annuler",
+    "Attendence Details":"Détails de participation",
+    "Working Hours":"Heures de travail",
+    "Recent":"Récent",
+    "Your":"Ton",
+    "Leave has Been":"Le congé a été"
+
+
+
+
+
+
+
+
+
+
+}
