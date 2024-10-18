@@ -9,6 +9,7 @@
                 <template v-slot:append>
                     <v-btn :disabled="!message" color="success" prepend-icon="mdi-send"
                         type="submit">{{ $t('Send') }}</v-btn>
+                        <v-btn @click="refresh">{{ $t('Refresh') }}</v-btn>
                     <v-btn @click="clear" v-if="admin" class="ml-2" color="error">{{ $t('Clear') }}</v-btn>
                 </template>
             </v-text-field>
@@ -115,6 +116,10 @@ export default {
                     })
                 })
             this.$store.commit('removeData');
+
+        },
+        refresh(){
+            this.$store.commit('groupMessage');
 
         }
     }
