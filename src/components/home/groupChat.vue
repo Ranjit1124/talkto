@@ -119,6 +119,8 @@ export default {
 
         },
         refresh(){
+            this.$store.commit('removeData');
+
             this.$store.commit('groupMessage');
 
         }
