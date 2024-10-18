@@ -81,7 +81,7 @@ export default {
             if(this.$refs.forms.validate()){
 
            
-            if (this.message && this.username) {
+            if (this.message ) {
                 const msg = {
                     name: this.username,
                     msg: this.message,
