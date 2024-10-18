@@ -5,32 +5,32 @@
       <v-card-subtitle>{{ time }}</v-card-subtitle>
     </v-card>
     <v-row class="chart">
-  <v-col cols="6">
-    <v-divider :thickness="30" color="divider"></v-divider>
-    <v-card :title="$t('Employee Details')">
-      <v-divider class="border-opacity-75" />
-      <div class="canvas">
-        <canvas ref="myChart"></canvas>
-      </div>
-    </v-card>
-  </v-col>
-  <v-col cols="6">
-    <v-divider :thickness="30" color="divider"></v-divider>
-    <v-card :title="$t('Attendence Details')">
-      <v-divider class="border-opacity-75" />
-      <div class="canvas2">
-        <canvas ref="myChart2"></canvas>
-      </div>
-    </v-card>
-  </v-col>
+      <v-col cols="6">
+        <v-divider :thickness="30" color="divider"></v-divider>
+        <v-card :title="$t('Employee Details')">
+          <v-divider class="border-opacity-75" />
+          <div class="canvas">
+            <canvas ref="myChart"></canvas>
+          </div>
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-divider :thickness="30" color="divider"></v-divider>
+        <v-card :title="$t('Attendence Details')">
+          <v-divider class="border-opacity-75" />
+          <div class="canvas2">
+            <canvas ref="myChart2"></canvas>
+          </div>
+        </v-card>
+      </v-col>
 
-</v-row>
+    </v-row>
     <v-divider :thickness="20" color="divider"></v-divider>
     <v-card :title="$t(`Today's Attendance`)">
       <template v-slot:append>
         <v-dialog max-width="500">
           <template v-slot:activator="{ props: activatorProps }">
-            <v-btn v-bind="activatorProps" color="primary"  variant="flat" @click="subChild1">{{$t('View All')}}</v-btn>
+            <v-btn v-bind="activatorProps" color="primary" variant="flat" @click="subChild1">{{ $t('View All') }}</v-btn>
           </template>
           <template v-slot:default="{ isActive }">
             <v-card :title="$t('Attendance List')">
@@ -44,7 +44,7 @@
         </v-dialog>
       </template>
       <v-divider class="border-opacity-75"></v-divider>
-      <v-card-text >{{ $t('Check-In') }} : {{ attendence.checkin }}</v-card-text>
+      <v-card-text>{{ $t('Check-In') }} : {{ attendence.checkin }}</v-card-text>
       <v-card-text>{{ $t('Check-Out') }} : {{ attendence.checkout }}</v-card-text>
       <v-list></v-list>
     </v-card>
@@ -53,12 +53,13 @@
       <template v-slot:append>
         <v-dialog max-width="500">
           <template v-slot:activator="{ props: activatorProps }">
-            <v-btn v-bind="activatorProps" color="primary"  variant="flat" @click="subChild2">{{$t('View All')}}</v-btn>
+            <v-btn v-bind="activatorProps" color="primary" variant="flat" @click="subChild2">{{ $t('View All') }}</v-btn>
           </template>
           <template v-slot:default="{ isActive }">
             <v-card :title="$t('Employee List')">
               <v-col cols="7">
-              <v-text-field  v-model="search"  :label="$t('search')" prepend-inner-icon="mdi-magnify"></v-text-field></v-col>
+                <v-text-field v-model="search" :label="$t('search')"
+                  prepend-inner-icon="mdi-magnify"></v-text-field></v-col>
               <v-data-table-virtual :items="emp" height="500" :search="search">
               </v-data-table-virtual>
               <v-card-actions>
@@ -70,7 +71,7 @@
         </v-dialog>
       </template>
       <v-divider class="border-opacity-75"></v-divider>
-      <v-data-table-virtual :items="dash" height="200" ></v-data-table-virtual>
+      <v-data-table-virtual :items="dash" height="200"></v-data-table-virtual>
     </v-card>
   </v-container>
 </template>
@@ -153,7 +154,7 @@ export default {
     async subChild1() {
       if (this.username === "Ajeesh") {
         try {
-          const response = await this.axios.get('http://localhost:3000/attendence');
+          const response = await this.axios.get('https://planner-node.onrender.com/attendence');
           this.item1 = response.data.map(element => ({
             name: element.username,
             In: element.In,
@@ -167,8 +168,8 @@ export default {
       } else {
         try {
 
-          const response = await this.axios.get('http://localhost:3000/attendence');
-          console.log('response',response);
+          const response = await this.axios.get('https://planner-node.onrender.com/attendence');
+          console.log('response', response);
 
           this.specific = response.data.filter(element => element.username === this.username);
           this.item.push(this.specific);
@@ -180,7 +181,7 @@ export default {
 
     async subChild2() {
       try {
-        const response = await this.axios.get('http://localhost:3000/signup');
+        const response = await this.axios.get('https://planner-node.onrender.com/signup');
         this.emp = response.data.map(user => ({
           Name: user.name,
           ID: user.id,
@@ -199,7 +200,7 @@ export default {
 
     async fetchEmployeeRoles() {
       try {
-        const response = await this.axios.get('http://localhost:3000/signup');
+        const response = await this.axios.get('https://planner-node.onrender.com/signup');
         const roles = response.data.map(user => user.role);
         this.chartData.datasets[0].data = [
           roles.filter(role => role === 'Developer').length,
@@ -221,17 +222,17 @@ export default {
   beforeMount() {
     this.fetchEmployeeRoles();
   },
-  async created(){
+  async created() {
     try {
-        const response = await this.axios.get('http://localhost:3000/signup');
-        this.dash = response.data.map(user => ({
-          Name: user.name,
-          ID: user.id,
-          Role: user.role
-        }));
-      } catch (error) {
-        console.error(error);
-      }
+      const response = await this.axios.get('https://planner-node.onrender.com/signup');
+      this.dash = response.data.map(user => ({
+        Name: user.name,
+        ID: user.id,
+        Role: user.role
+      }));
+    } catch (error) {
+      console.error(error);
+    }
 
   }
 };
@@ -248,15 +249,15 @@ canvas {
 }
 
 .canvas {
-  width:250px;
-  margin:0 auto;
-  padding:10px;
+  width: 250px;
+  margin: 0 auto;
+  padding: 10px;
 
 }
 
 .canvas2 {
   width: 500px;
-  padding:10px;
+  padding: 10px;
 
 }
 </style>

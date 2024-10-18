@@ -1,50 +1,50 @@
 <template>
-    <v-container class="main"  :fluid=side>
+    <v-container class="main" :fluid=side>
         <!-- :key="componentKey" -->
         <v-card class="name">
             <v-card-title>{{ $t('Attendence') }}</v-card-title>
         </v-card>
         <v-divider :thickness="20" color="divider"></v-divider>
         <v-card class="clock">
-        <v-card>
-            <v-row>
-                <v-col>
-                    <v-time-picker v-model="checkIn" use-seconds scrollable>
+            <v-card>
+                <v-row>
+                    <v-col>
+                        <v-time-picker v-model="checkIn" use-seconds scrollable>
 
-                    </v-time-picker>
-                    <v-btn @click="start" :disabled="this.visible" color="success">{{$t('Check-In')}}</v-btn>
-                    <v-card-text>{{ timeStart }}</v-card-text>
-                </v-col>
-            </v-row>
-        </v-card>
+                        </v-time-picker>
+                        <v-btn @click="start" :disabled="this.visible" color="success">{{ $t('Check-In') }}</v-btn>
+                        <v-card-text>{{ timeStart }}</v-card-text>
+                    </v-col>
+                </v-row>
+            </v-card>
 
             <v-card :title="$t('Today')" class="today" color="primary">
-            <v-card-item>{{ this.date }}</v-card-item>
-            <v-divider :thickness="30"></v-divider>
-            <v-card-text style="font-family: cursive;">{{$t('Login Hours')}}</v-card-text>
-            <v-card-item style="font-family: cursive;"> {{ this.hour }} :
-                {{ this.minute }} :
-                {{ this.second }}
-            </v-card-item>
+                <v-card-item>{{ this.date }}</v-card-item>
+                <v-divider :thickness="30"></v-divider>
+                <v-card-text style="font-family: cursive;">{{ $t('Login Hours') }}</v-card-text>
+                <v-card-item style="font-family: cursive;"> {{ this.hour }} :
+                    {{ this.minute }} :
+                    {{ this.second }}
+                </v-card-item>
             </v-card>
 
             <v-card>
 
-            <v-row>
-                <v-col>
+                <v-row>
+                    <v-col>
 
-                    <v-time-picker v-model="checkOut" use-seconds scrollable>
+                        <v-time-picker v-model="checkOut" use-seconds scrollable>
 
-                    </v-time-picker>
-                    <v-btn @click="end" :disabled="!this.visible" color='error'>{{$t('Check-Out')}}</v-btn>
-                    <v-card-text>{{ timeEnd }}</v-card-text>
+                        </v-time-picker>
+                        <v-btn @click="end" :disabled="!this.visible" color='error'>{{ $t('Check-Out') }}</v-btn>
+                        <v-card-text>{{ timeEnd }}</v-card-text>
 
-                </v-col>
-            </v-row>
+                    </v-col>
+                </v-row>
+
+            </v-card>
 
         </v-card>
-
-      </v-card>
     </v-container>
 </template>
 
@@ -54,7 +54,7 @@ import { mapState } from 'vuex';
 
 export default {
     name: 'attendencePage',
-    props:['side'],
+    props: ['side'],
 
     data() {
         return {
@@ -89,34 +89,36 @@ export default {
             this.$store.commit('checkOut', this.checkOut)
 
             this.axios
-                .post('http://localhost:3000/attendence', {
+                .post('https://planner-node.onrender.com/attendence', {
                     username: this.username, In: this.attendence.checkIn, Out: this.attendence.checkOut, date: this.date
                 })
-                console.log(         'atten',  {username: this.username, In: this.attendence.checkIn, Out: this.attendence.checkOut, date: this.date
-        });
-                
+            console.log('atten', {
+                username: this.username, In: this.attendence.checkIn, Out: this.attendence.checkOut, date: this.date
+            });
+
 
         }
     },
     computed: {
-        ...mapState(['second', 'minute', 'hour', 'visible', 'username','attendence'])
+        ...mapState(['second', 'minute', 'hour', 'visible', 'username', 'attendence'])
     }
 }
 </script>
 <style scoped>
-.clock{
-    display:flex;
+.clock {
+    display: flex;
     text-align: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     /* width: fit-content; */
-    
+
 }
-.today{
-    width:fit-content;
-    height:fit-content;
-     color: white;
+
+.today {
+    width: fit-content;
+    height: fit-content;
+    color: white;
     padding-top: 30px;
-    margin-top:120px;
+    margin-top: 120px;
 }
 </style>

@@ -76,7 +76,7 @@ const store = createStore({
      },
      groupMessage(state){
         axios
-        .get('http://localhost:3000/msg')
+        .get('https://planner-node.onrender.com/msg')
         .then((response)=>{
           
           response.data.forEach((detail)=>{
@@ -101,7 +101,7 @@ const store = createStore({
      },
      private(state){
       axios
-      .get('http://localhost:3000/private')
+      .get('https://planner-node.onrender.com/private')
       .then((res)=>{
         state.privateMsg.push(res.data)
         
