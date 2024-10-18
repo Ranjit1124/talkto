@@ -81,8 +81,10 @@ export default{
         
         
     },
-   async mounted(){
-        await this.axios
+    mounted(){
+        console.log('mounted');
+        
+         this.axios
        .get('http://localhost:3000/leaveapproval')
        .then((response)=>{
         console.log('response',response);
@@ -109,7 +111,7 @@ export default{
         .post('http://localhost:3000/leave',{
             username:this.username,
             leaveType:this.leave,
-            id:this.id,
+            ids:this.id,
             date:this.date
         })
         this.leave=''

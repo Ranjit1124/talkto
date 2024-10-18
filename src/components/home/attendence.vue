@@ -92,6 +92,9 @@ export default {
                 .post('http://localhost:3000/attendence', {
                     username: this.username, In: this.attendence.checkIn, Out: this.attendence.checkOut, date: this.date
                 })
+                console.log(         'atten',  {username: this.username, In: this.attendence.checkIn, Out: this.attendence.checkOut, date: this.date
+        });
+                
 
         }
     },

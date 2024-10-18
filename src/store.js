@@ -82,7 +82,7 @@ const store = createStore({
           response.data.forEach((detail)=>{
             console.log('store',detail);
 
-              const value = {name:detail.data.name,msg:detail.data.msg,id:detail.data.id}
+              const value = {name:detail.name,msg:detail.msg,id:detail.id}
               state.groupmsg.push(value)
           })
         })

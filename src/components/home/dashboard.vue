@@ -166,7 +166,10 @@ export default {
         }
       } else {
         try {
+
           const response = await this.axios.get('http://localhost:3000/attendence');
+          console.log('response',response);
+
           this.specific = response.data.filter(element => element.username === this.username);
           this.item.push(this.specific);
         } catch (error) {

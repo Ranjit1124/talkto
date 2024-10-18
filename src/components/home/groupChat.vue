@@ -81,11 +81,10 @@ export default {
             if(this.$refs.forms.validate()){
 
            
-            if (this.message) {
+            if (this.message && this.username) {
                 const msg = {
                     name: this.username,
                     msg: this.message,
-                    id: this.groupmsg.length + 1, 
                 };
                 this.message=''
 
@@ -108,13 +107,13 @@ export default {
             console.log('fire',res.data.id);
             res.data.forEach(ele => {
 
-                const firestoreDocId  = ele.id;
-                console.log('firestoreDocId',firestoreDocId);
+                const MongoDocId  = ele.id;
+                console.log('MongoDocId',MongoDocId);
 
-                console.log(`Deleting message with ID: ${firestoreDocId }`);
+                console.log(`Deleting message with ID: ${MongoDocId }`);
                 console.log('detail',this.groupmsg);
 
-                 this.axios.delete(`http://localhost:3000/msg/${firestoreDocId }`);
+                 this.axios.delete(`http://localhost:3000/msg/${MongoDocId }`);
 
         })
     })
